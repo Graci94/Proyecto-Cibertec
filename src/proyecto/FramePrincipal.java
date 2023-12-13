@@ -14,6 +14,8 @@ import javax.swing.JMenu;
 import java.awt.Color;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
+//import java.util.ArrayList;
+//import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class FramePrincipal extends JFrame {
@@ -102,6 +104,11 @@ public class FramePrincipal extends JFrame {
 		menuBar.add(mnArchivo);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Salir");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
 		mnArchivo.add(mntmNewMenuItem);
 		
 		JMenu mnMantenimiento = new JMenu("Mantenimiento");
@@ -147,7 +154,7 @@ public class FramePrincipal extends JFrame {
 				
 				try {
 					//crear el objeto jframe y mostrarlo cuando se hace clic
-					Listarceramicos frameListar = new Listarceramicos();
+					ListarCeramicos frameListar = new ListarCeramicos();
 					frameListar.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					frameListar.setVisible(true);
 				} catch (Exception error) {
@@ -199,6 +206,15 @@ public class FramePrincipal extends JFrame {
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Configurar descuentos");
 		mntmNewMenuItem_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					//crear el objeto jframe y mostrarlo cuando se hace clic
+					ConfigurarDescuento frameDescuento = new ConfigurarDescuento(FramePrincipal.this);
+					frameDescuento.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					frameDescuento.setVisible(true);
+				} catch (Exception error) {
+					error.printStackTrace();
+				}
+				
 			}
 		});
 		mnConfiguracion.add(mntmNewMenuItem_7);
@@ -207,6 +223,14 @@ public class FramePrincipal extends JFrame {
 		mntmNewMenuItem_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				try {
+					//crear el objeto jframe y mostrarlo cuando se hace clic
+					ConfigurarObsequios frameObsequio = new ConfigurarObsequios(FramePrincipal.this);
+					frameObsequio.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					frameObsequio.setVisible(true);
+				} catch (Exception error) {
+					error.printStackTrace();
+				}
 			}
 		});
 		mnConfiguracion.add(mntmNewMenuItem_8);
@@ -214,13 +238,32 @@ public class FramePrincipal extends JFrame {
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Configurar cantidad óptima");
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					//crear el objeto jframe y mostrarlo cuando se hace clic
+					ConfigurarCantidadOptima frameCantidadOptima = new ConfigurarCantidadOptima(FramePrincipal.this);
+					frameCantidadOptima.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					frameCantidadOptima.setVisible(true);
+				} catch (Exception error) {
+					error.printStackTrace();
+				}
+				
 			}
 		});
 		mnConfiguracion.add(mntmNewMenuItem_6);
 		
-		JMenuItem mntmNewMenuItem_9 = new JMenuItem(" \nConfigurar cuota diaria\n");
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Configurar cuota diaria\n");
 		mntmNewMenuItem_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					//crear el objeto jframe y mostrarlo cuando se hace clic
+					configurarCuotaDiaria frameCuotaDiaria = new configurarCuotaDiaria(FramePrincipal.this);
+					frameCuotaDiaria.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					frameCuotaDiaria.setVisible(true);
+				} catch (Exception error) {
+					error.printStackTrace();
+				}
 			}
 		});
 		mnConfiguracion.add(mntmNewMenuItem_9);
@@ -231,6 +274,16 @@ public class FramePrincipal extends JFrame {
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Acerca de Tienda");
 		mntmNewMenuItem_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					//crear el objeto jframe y mostrarlo cuando se hace clic
+					Tienda1 frameTienda = new Tienda1(FramePrincipal.this);
+					frameTienda.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					frameTienda.setVisible(true);
+				} catch (Exception error) {
+					error.printStackTrace();
+				}
+				
 			}
 		});
 		mnAyuda.add(mntmNewMenuItem_10);
@@ -242,5 +295,43 @@ public class FramePrincipal extends JFrame {
 		contentPane.setLayout(null);
 	}
 	
-	
+	// metodos
+		double[] obtenerDescuentos() {
+			double[] descuentos= {
+					
+					porcentaje1,
+					porcentaje2,
+					porcentaje3,
+					porcentaje4,		
+			};
+			return descuentos;	
+		}
+		
+		void actualizarDescuentos(double[] descuentosNuevos){
+			porcentaje1= descuentosNuevos[0];
+			porcentaje2= descuentosNuevos[1];
+			porcentaje3= descuentosNuevos[2];
+			porcentaje4= descuentosNuevos[3];
+		}
+		
+		
+				int[] obtenerObsequios() {
+					int[] obsequios= {
+							
+							obsequioCantidad1,
+							obsequioCantidad2,
+							obsequioCantidad3
+									
+					};
+					return obsequios;	
+				}
+				
+				void actualizarObsequios(int[] ObsequiosNuevos){
+					obsequioCantidad1= ObsequiosNuevos[0];
+					obsequioCantidad2= ObsequiosNuevos[1];
+					obsequioCantidad3= ObsequiosNuevos[2];
+					
+				}
+				
 }
+

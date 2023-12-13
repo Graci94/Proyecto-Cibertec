@@ -40,15 +40,12 @@ public class ModificarCeramico extends JFrame {
 	// Agregar un campo para almacenar la instancia de FramePrincipal
     private FramePrincipal framePrincipal;
     
- // Constructor que acepta una instancia de FramePrincipal
-   //public ModificarCeramico(FramePrincipal FramePrincipal) {
-     //  this.framePrincipal = FramePrincipal;
-   //}
 
 	/**
 	 * Create the frame.
 	 */
 	public ModificarCeramico(FramePrincipal framePrincipal) {
+		
 		this.framePrincipal = framePrincipal;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -137,6 +134,7 @@ public class ModificarCeramico extends JFrame {
 		});
 		btncerrar.setBounds(349, 52, 117, 29);
 		contentPane.add(btncerrar);
+		
 		String []modelo={"Cinza Plus", "Luxury", "Austria","Yungay Mix", "Thalía"};
 		
 		JComboBox cbmodelo = new JComboBox(modelo);
