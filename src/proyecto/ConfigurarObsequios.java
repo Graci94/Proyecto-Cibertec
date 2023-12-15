@@ -1,6 +1,6 @@
 package proyecto;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -22,15 +22,12 @@ public class ConfigurarObsequios extends JFrame {
 	private JTextField tf_tipoobsequio2;
 	private JTextField tf_tipoobsequio3;
 
-	private FramePrincipal appReference;
+	
 
 	/**
 	 * Create the frame.
-	 */// recibir referencia del FramePrincipal  por parametro
-	public ConfigurarObsequios(FramePrincipal appReference) {
-		
-		// sirve usar las variables globales del frame principal
-		this.appReference = appReference;
+	 */
+	public ConfigurarObsequios() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 221);
@@ -99,7 +96,7 @@ public class ConfigurarObsequios extends JFrame {
 				};
 				//actualizar los valores 
 				
-				appReference.actualizarObsequios(obsequiosModificados);
+				FramePrincipal.actualizarObsequios(obsequiosModificados);
 				
 				// cerrar ventana
 				setVisible(false);
@@ -119,7 +116,7 @@ public class ConfigurarObsequios extends JFrame {
 		contentPane.add(btncancelar);
 		
 		//traer los porcentajes de descuento
-				appReference.obtenerObsequios();
+		FramePrincipal.obtenerObsequios();
 				mostrarObsequios();
 				mostrarTipoDeObsequio();
 	}
@@ -127,7 +124,7 @@ public class ConfigurarObsequios extends JFrame {
 		void mostrarObsequios() {
 			
 			//traer los porcentajes de descuento
-			int[] obsequios= appReference.obtenerObsequios();
+			int[] obsequios= FramePrincipal.obtenerObsequios();
 					
 					
 			tf_tipoobsequio1.setText(obsequios[0] + "");
@@ -138,7 +135,7 @@ public class ConfigurarObsequios extends JFrame {
 		}
 		
 	void mostrarTipoDeObsequio() {
-		String nombre= appReference.tipoObsequio;
+		String nombre= FramePrincipal.tipoObsequio;
 		tf_nombreobsequio.setText(nombre);
 	}
 }

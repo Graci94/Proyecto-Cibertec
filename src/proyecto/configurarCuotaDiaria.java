@@ -1,6 +1,6 @@
 package proyecto;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,17 +17,16 @@ public class configurarCuotaDiaria extends JFrame {
 	private JPanel contentPane;
 	private JTextField tf_cuotadiaria;
 	
-	private FramePrincipal appReference;
+	
 
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public configurarCuotaDiaria(FramePrincipal appReference) {
+	public configurarCuotaDiaria() {
 		
-		// sirve usar las variables globales del frame principal
-				this.appReference = appReference;
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 481, 203);
@@ -46,7 +45,7 @@ public class configurarCuotaDiaria extends JFrame {
 		contentPane.add(tf_cuotadiaria);
 		tf_cuotadiaria.setColumns(10);
 		
-		tf_cuotadiaria.setText(String.valueOf(appReference.cuotaDiaria));
+		tf_cuotadiaria.setText(String.valueOf(FramePrincipal.cuotaDiaria));
 		
 		
 		JButton btnaceptar = new JButton("Aceptar");
@@ -54,7 +53,7 @@ public class configurarCuotaDiaria extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int nuevaCuota = Integer.parseInt(tf_cuotadiaria.getText());
-				appReference.cuotaDiaria = nuevaCuota;
+				FramePrincipal.cuotaDiaria = nuevaCuota;
 				
 				setVisible(false);
 			}

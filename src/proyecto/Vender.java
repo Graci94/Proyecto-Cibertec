@@ -1,6 +1,6 @@
 package proyecto;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,30 +13,27 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Vender extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField tf_cantidad;
+	private JTextField tf_precio;
 	private JTextField ft_cantidad;
+	private JTextArea ta_salida;
+	private JComboBox<String> cbmodelo ;
+	double precio;
+	double importeCompra;
+	double importeDescuento;
+	double importePagar;
+	int unidadesObsequiadas;
+	int cajasAdquiridas;
+	int productoSeleccionadoIndex;
+	int UnidadesAdquiridas;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Vender frame = new Vender();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -53,18 +50,29 @@ public class Vender extends JFrame {
 		lblmodelo.setBounds(6, 35, 82, 16);
 		contentPane.add(lblmodelo);
 		
-		JComboBox cbprecio = new JComboBox();
-		cbprecio.setBounds(119, 31, 121, 27);
-		contentPane.add(cbprecio);
+		String []modelo={"Cinza Plus", "Luxury", "Austria","Yungay Mix", "Thalía"};
+		
+		cbmodelo  = new JComboBox<>(modelo);
+		cbmodelo.setBounds(119, 31, 121, 27);
+		cbmodelo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 productoSeleccionadoIndex= cbmodelo.getSelectedIndex();
+				mostrarPrecio();
+			}
+		});
+		contentPane.add(cbmodelo);
 		
 		JLabel lblprecio = new JLabel("Precio (S/)");
 		lblprecio.setBounds(6, 74, 82, 16);
 		contentPane.add(lblprecio);
 		
-		tf_cantidad = new JTextField();
-		tf_cantidad.setBounds(129, 70, 117, 26);
-		contentPane.add(tf_cantidad);
-		tf_cantidad.setColumns(10);
+		tf_precio = new JTextField();
+		tf_precio.setBounds(129, 70, 117, 26);
+		contentPane.add(tf_precio);
+		tf_precio.setColumns(10);
+		
+		
 		
 		JLabel lblcantidad = new JLabel("Cantidad");
 		lblcantidad.setBounds(6, 114, 61, 16);
@@ -75,30 +83,129 @@ public class Vender extends JFrame {
 		contentPane.add(ft_cantidad);
 		ft_cantidad.setColumns(10);
 		
+		
 		JButton btnvender = new JButton("Vender");
+		btnvender.setBounds(295, 30, 117, 29);
 		btnvender.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+			cajasAdquiridas= Integer.parseInt(ft_cantidad.getText());	
+			calcularImporteCompra();
+			calcularImporteDescuento();
+			calcularImportePagar();
+			unidadesObsequiadas= calcularUnidadesObsequiadas(calcularUnidadesAdquiridas(productoSeleccionadoIndex));
+			ta_salida.setText(generarBoletaVenta());
+			FramePrincipal.acumularVenta(productoSeleccionadoIndex, importePagar, cajasAdquiridas);
+			FramePrincipal.comprobarQuintavaVenta();
+			
+			
 			}
 		});
-		btnvender.setBounds(295, 30, 117, 29);
 		contentPane.add(btnvender);
 		
 		JButton btncerrar = new JButton("Cerrar");
+		btncerrar.setBounds(295, 69, 117, 29);
 		btncerrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 			}
 		});
-		btncerrar.setBounds(295, 69, 117, 29);
 		contentPane.add(btncerrar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(31, 166, 313, 101);
+		scrollPane.setBounds(31, 166, 381, 166);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
+		ta_salida = new JTextArea();
+		scrollPane.setViewportView(ta_salida);
+		
+		mostrarPrecio();
 	}
+	
+	//METODOS
+	
+	
+	
+	void mostrarPrecio() {
+		
+		precio = FramePrincipal.determinarPrecio( productoSeleccionadoIndex);
+		tf_precio.setText(precio+"");
+		
+	}
+	
+	String generarBoletaVenta() {
+		String mensaje="";
+		mensaje="BOLETA DE VENTA" ;
+		mensaje+="\n \n Modelo \t\t: "+ cbmodelo.getSelectedItem();
+		mensaje+="\n \n Precio \t\t: "+ tf_precio.getText() ;
+		mensaje+="\n \n cantidad Adquirida \t: "+ cajasAdquiridas;
+		mensaje+="\n \n Importe de Compra \t: "+importeCompra;
+		mensaje+="\n \n Importe de Descuento \t: "+importeDescuento;
+		mensaje+="\n \n Importe a pagar \t: "+importePagar;
+		mensaje+="\n \n Tipo de Obsequio \t: "+FramePrincipal.tipoObsequio;
+		mensaje+="\n \n Unidades Obsequiadas \t: "+ unidadesObsequiadas;
+		
+		
+		return mensaje;
+	}
+	void calcularImporteCompra() {
+		importeCompra= precio * cajasAdquiridas;
+		
+		
+	}
+	void calcularImporteDescuento() {
+		double porcentajeDescuento= determinarPorcentajeDescuento(cajasAdquiridas);
+		
+		importeDescuento = importeCompra * (porcentajeDescuento / 100);
+		
+	}
+	
+	void calcularImportePagar() {
+		
+		importePagar= importeCompra - importeDescuento;
+		
+	}
+	
+	int calcularUnidadesAdquiridas(int productoIndex) {
+		
+		int unidadesAdquiridas= cajasAdquiridas * FramePrincipal.determinarCantidadUnidades(productoIndex);
+		 return unidadesAdquiridas;
+	}
+	
+	int calcularUnidadesObsequiadas(int cantidadUnidades) {
+		int cantidadObsequios= 0;
+		
+		if(cantidadUnidades > 0 && cantidadUnidades<=5 ) {
+			cantidadObsequios= FramePrincipal.obsequioCantidad1;
+		}
+		else if(cantidadUnidades <= 10) {
+			cantidadObsequios= FramePrincipal.obsequioCantidad2;
+		}
+		else {
+			cantidadObsequios= FramePrincipal.obsequioCantidad3;
+		}
+		return cantidadObsequios;
+	}
+	
+	double determinarPorcentajeDescuento(int cajasAdquiridas) {
+		double porcentajeDescuento= 0.0;
+		
+		if(cajasAdquiridas > 0 && cajasAdquiridas<=5 ) {
+			porcentajeDescuento= FramePrincipal.porcentaje1;
+		}
+		else if(cajasAdquiridas <= 10) {
+			porcentajeDescuento= FramePrincipal.porcentaje2;
+		}
+		else if(cajasAdquiridas <= 15) {
+			porcentajeDescuento= FramePrincipal.porcentaje3;
+		}
+		else  {
+			porcentajeDescuento= FramePrincipal.porcentaje4;
+		}
+		
+		return porcentajeDescuento;
+	}
+	
+	
 }

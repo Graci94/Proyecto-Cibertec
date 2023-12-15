@@ -1,6 +1,6 @@
 package proyecto;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,13 +20,14 @@ public class ConfigurarDescuento extends JFrame {
 	private JTextField tf_descuento3;
 	private JTextField tf_descuento4;
 
-	private FramePrincipal appReference;
+	
+	
 	/**
 	 * Create the frame.
 	 */
-	public ConfigurarDescuento(FramePrincipal appReference) {
+	public ConfigurarDescuento() {
 		
-		this.appReference= appReference;
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 486, 187);
@@ -77,15 +78,11 @@ public class ConfigurarDescuento extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// recoger los nuevos valores
-				double descuento1Modificado;
-				double descuento2Modificado;
-				double descuento3Modificado;
-				double descuento4Modificado;
-				
-				descuento1Modificado= Double.parseDouble(tf_descuento1.getText());
-				descuento2Modificado= Double.parseDouble(tf_descuento2.getText());
-				descuento3Modificado= Double.parseDouble(tf_descuento3.getText());
-				descuento4Modificado= Double.parseDouble(tf_descuento4.getText());
+								
+				double descuento1Modificado= Double.parseDouble(tf_descuento1.getText());
+				double descuento2Modificado= Double.parseDouble(tf_descuento2.getText());
+				double descuento3Modificado= Double.parseDouble(tf_descuento3.getText());
+				double descuento4Modificado= Double.parseDouble(tf_descuento4.getText());
 			
 				double [] descuentosModificados= {
 						descuento1Modificado,
@@ -95,7 +92,7 @@ public class ConfigurarDescuento extends JFrame {
 				};
 				//actualizar los valores 
 				
-				appReference.actualizarDescuentos(descuentosModificados);
+				FramePrincipal.actualizarDescuentos(descuentosModificados);
 				
 				// cerrar ventana
 				setVisible(false);
@@ -133,7 +130,7 @@ public class ConfigurarDescuento extends JFrame {
 		contentPane.add(lblNewLabel_4_3);
 		
 		//traer los porcentajes de descuento
-		appReference.obtenerDescuentos();
+		FramePrincipal.obtenerDescuentos();
 		mostrarDescuentos();
 	}
 
@@ -141,7 +138,7 @@ public class ConfigurarDescuento extends JFrame {
 	void mostrarDescuentos() {
 		
 		//traer los porcentajes de descuento
-		double[] descuentos= appReference.obtenerDescuentos();
+		double[] descuentos= FramePrincipal.obtenerDescuentos();
 				
 				
 				tf_descuento1.setText(descuentos[0] + "");

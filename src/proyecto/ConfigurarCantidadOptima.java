@@ -1,6 +1,6 @@
 package proyecto;
 
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.DropMode;
+
 
 public class ConfigurarCantidadOptima extends JFrame {
 
@@ -18,17 +18,11 @@ public class ConfigurarCantidadOptima extends JFrame {
 	private JPanel contentPane;
 	private JTextField tf_cantidadoptima;
 	
-	private FramePrincipal appReference;
-
-	
-
 	/**
 	 * Create the frame.
 	 */
-	public ConfigurarCantidadOptima(FramePrincipal appReference) {
-		
-		// sirve usar las variables globales del frame principal
-				this.appReference = appReference;
+	public ConfigurarCantidadOptima() {
+	
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 502, 176);
@@ -47,7 +41,7 @@ public class ConfigurarCantidadOptima extends JFrame {
 		contentPane.add(tf_cantidadoptima);
 		tf_cantidadoptima.setColumns(10);
 		
-		tf_cantidadoptima.setText(String.valueOf(appReference.cantidadOptima));
+		tf_cantidadoptima.setText(String.valueOf(FramePrincipal.cantidadOptima));
 		
 		JButton btnaceptar = new JButton("Aceptar");
 		btnaceptar.addMouseListener(new MouseAdapter() {

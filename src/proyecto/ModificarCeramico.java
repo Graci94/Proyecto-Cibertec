@@ -35,18 +35,12 @@ public class ModificarCeramico extends JFrame {
 	
 	int productoSeleccionadoIndex=0;
 	
-	FramePrincipal appReference;
 	
-	// Agregar un campo para almacenar la instancia de FramePrincipal
-    private FramePrincipal framePrincipal;
-    
-
 	/**
 	 * Create the frame.
 	 */
-	public ModificarCeramico(FramePrincipal framePrincipal) {
-		
-		this.framePrincipal = framePrincipal;
+	public ModificarCeramico() {
+	
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 497, 321);
@@ -137,7 +131,7 @@ public class ModificarCeramico extends JFrame {
 		
 		String []modelo={"Cinza Plus", "Luxury", "Austria","Yungay Mix", "Thalía"};
 		
-		JComboBox cbmodelo = new JComboBox(modelo);
+		JComboBox<String>cbmodelo = new JComboBox<>(modelo);
 		cbmodelo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//leer valores
@@ -158,17 +152,17 @@ public class ModificarCeramico extends JFrame {
 		
 		
 		mostrarResultados(
-    			framePrincipal.precio0,
-                framePrincipal.ancho0,
-                framePrincipal.largo0 ,
-                framePrincipal.espesor0,
-                framePrincipal.contenido0		
+    			FramePrincipal.precio0,
+                FramePrincipal.ancho0,
+                FramePrincipal.largo0 ,
+                FramePrincipal.espesor0,
+                FramePrincipal.contenido0		
     			
     			);
 	}
 	//crear metodos
 	
-	public void verCeramicos(JComboBox cbmodelo) {
+	public void verCeramicos(JComboBox<String> cbmodelo) {
 		
 		String modelo = (String) cbmodelo.getSelectedItem();
 		
@@ -176,55 +170,55 @@ public class ModificarCeramico extends JFrame {
 		switch (modelo) {
         case "Cinza Plus":
         	mostrarResultados(
-        			framePrincipal.precio0,
-                    framePrincipal.ancho0,
-                    framePrincipal.largo0 ,
-                    framePrincipal.espesor0,
-                    framePrincipal.contenido0		
+        			FramePrincipal.precio0,
+        			FramePrincipal.ancho0,
+        			FramePrincipal.largo0 ,
+        			FramePrincipal.espesor0,
+        			FramePrincipal.contenido0		
         			
         			);
             
             break;
         case "Luxury":
         	mostrarResultados(
-        			framePrincipal.precio1,
-                    framePrincipal.ancho1,
-                    framePrincipal.largo1 ,
-                    framePrincipal.espesor1,
-                    framePrincipal.contenido1		
+        			FramePrincipal.precio1,
+        			FramePrincipal.ancho1,
+        			FramePrincipal.largo1 ,
+                    FramePrincipal.espesor1,
+                    FramePrincipal.contenido1		
         			
         			);
             break;
 
         case "Austria":
         	mostrarResultados(
-        			framePrincipal.precio2,
-                    framePrincipal.ancho2,
-                    framePrincipal.largo2 ,
-                    framePrincipal.espesor2,
-                    framePrincipal.contenido2		
+        			FramePrincipal.precio2,
+        			FramePrincipal.ancho2,
+        			FramePrincipal.largo2 ,
+        			FramePrincipal.espesor2,
+        			FramePrincipal.contenido2		
         			
         			);
             break;
 
         case "Yungay Mix":
         	mostrarResultados(
-        			framePrincipal.precio3,
-                    framePrincipal.ancho3,
-                    framePrincipal.largo3,
-                    framePrincipal.espesor3,
-                    framePrincipal.contenido3		
+        			FramePrincipal.precio3,
+        			FramePrincipal.ancho3,
+        			FramePrincipal.largo3,
+        			FramePrincipal.espesor3,
+        			FramePrincipal.contenido3		
         			
         			);
             break;
 
         case "Thalía":
         	mostrarResultados(
-        			framePrincipal.precio4,
-                    framePrincipal.ancho4,
-                    framePrincipal.largo4 ,
-                    framePrincipal.espesor4,
-                    framePrincipal.contenido4		
+        			FramePrincipal.precio4,
+        			FramePrincipal.ancho4,
+        			FramePrincipal.largo4 ,
+        			FramePrincipal.espesor4,
+        			FramePrincipal.contenido4		
         			
         			);
             break;
@@ -243,49 +237,52 @@ public class ModificarCeramico extends JFrame {
 	 }
 	 void modificarCeramico() {
 		 switch (productoSeleccionadoIndex) {
+		 
 	        case 0:
-	        	framePrincipal.precio0= precioActual;
-	        	framePrincipal.ancho0= anchoActual;
-	        	framePrincipal.largo0= largoActual;
-	        	framePrincipal.espesor0= espesorActual;
-	        	framePrincipal.contenido0= contenidoActual;
+	        	FramePrincipal.precio0= precioActual;
+	        	FramePrincipal.ancho0= anchoActual;
+	        	FramePrincipal.largo0= largoActual;
+	        	FramePrincipal.espesor0= espesorActual;
+	        	FramePrincipal.contenido0= contenidoActual;
 	        	
 	       
 	     
 	            
 	            break;
 	        case 1:
-	        	framePrincipal.precio1= precioActual;
-	        	framePrincipal.ancho1= anchoActual;
-	        	framePrincipal.largo1= largoActual;
-	        	framePrincipal.espesor1= espesorActual;
-	        	framePrincipal.contenido1= contenidoActual;
+	        	FramePrincipal.precio1= precioActual;
+	        	FramePrincipal.ancho1= anchoActual;
+	        	FramePrincipal.largo1= largoActual;
+	        	FramePrincipal.espesor1= espesorActual;
+	        	FramePrincipal.contenido1= contenidoActual;
 	            break;
 
 	        case 2:
-	        	framePrincipal.precio2= precioActual;
-	        	framePrincipal.ancho2= anchoActual;
-	        	framePrincipal.largo2= largoActual;
-	        	framePrincipal.espesor2= espesorActual;
-	        	framePrincipal.contenido2= contenidoActual;
+	        	FramePrincipal.precio2= precioActual;
+	        	FramePrincipal.ancho2= anchoActual;
+	        	FramePrincipal.largo2= largoActual;
+	        	FramePrincipal.espesor2= espesorActual;
+	        	FramePrincipal.contenido2= contenidoActual;
 	            break;
 
 	        case 3:
-	        	framePrincipal.precio3= precioActual;
-	        	framePrincipal.ancho3= anchoActual;
-	        	framePrincipal.largo3= largoActual;
-	        	framePrincipal.espesor3= espesorActual;
-	        	framePrincipal.contenido3= contenidoActual;
+	        	FramePrincipal.precio3= precioActual;
+	        	FramePrincipal.ancho3= anchoActual;
+	        	FramePrincipal.largo3= largoActual;
+	        	FramePrincipal.espesor3= espesorActual;
+	        	FramePrincipal.contenido3= contenidoActual;
 	            break;
 
 	        case 4:
-	        	framePrincipal.precio4= precioActual;
-	        	framePrincipal.ancho4= anchoActual;
-	        	framePrincipal.largo4= largoActual;
-	        	framePrincipal.espesor4= espesorActual;
-	        	framePrincipal.contenido4= contenidoActual;
+	        	FramePrincipal.precio4= precioActual;
+	        	FramePrincipal.ancho4= anchoActual;
+	        	FramePrincipal.largo4= largoActual;
+	        	FramePrincipal.espesor4= espesorActual;
+	        	FramePrincipal.contenido4= contenidoActual;
 	            break;
 		 }	 
+		 
+		 
 	 }
 	 
 }

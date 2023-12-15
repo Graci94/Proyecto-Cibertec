@@ -1,6 +1,5 @@
 package proyecto;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,9 +9,6 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.DefaultComboBoxModel;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
@@ -27,25 +23,10 @@ public class ConsultarCeramico extends JFrame {
 	private JTextField tfAncho;
 	private JTextField tfEspesor;
 	private JTextField tfContenido;
-	private JComboBox cbModelo;
-	//private JButton btnCerrar;
+	private JComboBox<String> cbModelo;
+	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultarCeramico frame = new ConsultarCeramico();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -90,7 +71,7 @@ public class ConsultarCeramico extends JFrame {
 		
 		String[] listaCeramicos= {"Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalía"};
 		
-		cbModelo = new JComboBox(listaCeramicos);
+		cbModelo = new JComboBox<>(listaCeramicos);
 		cbModelo.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				
@@ -105,8 +86,7 @@ public class ConsultarCeramico extends JFrame {
 				
 				//PRESENTACION UTILIZANDO LOS METODOS
 				tipo = determinarCeramico(); 
-				
-				precio = determinarPrecio(tipo);
+				precio = FramePrincipal.determinarPrecio(tipo);
 				ancho = determinarAncho(tipo);
 				largo = determinaLargo(tipo);
 				espesor = determinaEspesor(tipo);
@@ -183,21 +163,7 @@ public class ConsultarCeramico extends JFrame {
 				return cbModelo.getSelectedIndex();
 			}
 		
-			double determinarPrecio(int tipo) {
-				switch (tipo) {
-				case 0:
-					return FramePrincipal.precio0;
-				case 1:
-					return FramePrincipal.precio1;	
-				case 2:
-					return FramePrincipal.precio2;	
-				case 3:
-					return FramePrincipal.precio3;	
-				case 4:
-					return FramePrincipal.precio4;								
-				}
-				return tipo;
-			}
+		
 		
 			double determinarAncho(int tipo) {
 				switch (tipo) {
