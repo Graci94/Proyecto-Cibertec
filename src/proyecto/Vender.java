@@ -39,7 +39,8 @@ public class Vender extends JFrame {
 	 */
 	public Vender() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 409);
+		setTitle("Vender");
+		setBounds(100, 100, 451, 527);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -47,13 +48,13 @@ public class Vender extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblmodelo = new JLabel("Modelo");
-		lblmodelo.setBounds(6, 35, 82, 16);
+		lblmodelo.setBounds(26, 35, 82, 16);
 		contentPane.add(lblmodelo);
 		
 		String []modelo={"Cinza Plus", "Luxury", "Austria","Yungay Mix", "Thalía"};
 		
 		cbmodelo  = new JComboBox<>(modelo);
-		cbmodelo.setBounds(119, 31, 121, 27);
+		cbmodelo.setBounds(129, 30, 117, 27);
 		cbmodelo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -64,22 +65,23 @@ public class Vender extends JFrame {
 		contentPane.add(cbmodelo);
 		
 		JLabel lblprecio = new JLabel("Precio (S/)");
-		lblprecio.setBounds(6, 74, 82, 16);
+		lblprecio.setBounds(26, 75, 82, 16);
 		contentPane.add(lblprecio);
 		
 		tf_precio = new JTextField();
 		tf_precio.setBounds(129, 70, 117, 26);
+		tf_precio.setEditable(false);
 		contentPane.add(tf_precio);
 		tf_precio.setColumns(10);
 		
 		
 		
 		JLabel lblcantidad = new JLabel("Cantidad");
-		lblcantidad.setBounds(6, 114, 61, 16);
+		lblcantidad.setBounds(26, 114, 61, 16);
 		contentPane.add(lblcantidad);
 		
 		ft_cantidad = new JTextField();
-		ft_cantidad.setBounds(129, 109, 121, 26);
+		ft_cantidad.setBounds(129, 109, 117, 26);
 		contentPane.add(ft_cantidad);
 		ft_cantidad.setColumns(10);
 		
@@ -114,7 +116,7 @@ public class Vender extends JFrame {
 		contentPane.add(btncerrar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(31, 166, 381, 166);
+		scrollPane.setBounds(31, 166, 381, 296);
 		contentPane.add(scrollPane);
 		
 		ta_salida = new JTextArea();

@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 
 public class ConfigurarCantidadOptima extends JFrame {
@@ -25,6 +26,7 @@ public class ConfigurarCantidadOptima extends JFrame {
 	
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Configurar cantidad óptima");
 		setBounds(100, 100, 502, 176);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,7 +35,8 @@ public class ConfigurarCantidadOptima extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblcantidadoptima = new JLabel("Cantidad  óptima de unidades vendidas");
-		lblcantidadoptima.setBounds(6, 18, 262, 16);
+		lblcantidadoptima.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblcantidadoptima.setBounds(22, 18, 252, 16);
 		contentPane.add(lblcantidadoptima);
 		
 		tf_cantidadoptima = new JTextField();
@@ -44,6 +47,7 @@ public class ConfigurarCantidadOptima extends JFrame {
 		tf_cantidadoptima.setText(String.valueOf(FramePrincipal.cantidadOptima));
 		
 		JButton btnaceptar = new JButton("Aceptar");
+		btnaceptar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnaceptar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -53,17 +57,18 @@ public class ConfigurarCantidadOptima extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnaceptar.setBounds(379, 13, 117, 29);
+		btnaceptar.setBounds(360, 12, 117, 29);
 		contentPane.add(btnaceptar);
 		
 		JButton btncancelar = new JButton("Cancelar");
+		btncancelar.setFont(new Font("Arial", Font.BOLD, 12));
 		btncancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 			}
 		});
-		btncancelar.setBounds(379, 49, 117, 29);
+		btncancelar.setBounds(360, 52, 117, 29);
 		contentPane.add(btncancelar);
 	}
 

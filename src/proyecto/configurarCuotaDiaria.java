@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class configurarCuotaDiaria extends JFrame {
 
@@ -29,6 +30,7 @@ public class configurarCuotaDiaria extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Configurar cuota diaria");
 		setBounds(100, 100, 481, 203);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -37,11 +39,13 @@ public class configurarCuotaDiaria extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblcuotadiaria = new JLabel("Cuota diaria esperada (S/.)");
-		lblcuotadiaria.setBounds(6, 44, 231, 16);
+		lblcuotadiaria.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblcuotadiaria.setBounds(30, 44, 231, 16);
 		contentPane.add(lblcuotadiaria);
 		
 		tf_cuotadiaria = new JTextField( );
-		tf_cuotadiaria.setBounds(271, 39, 86, 26);
+		tf_cuotadiaria.setFont(new Font("Arial", Font.PLAIN, 12));
+		tf_cuotadiaria.setBounds(245, 39, 86, 26);
 		contentPane.add(tf_cuotadiaria);
 		tf_cuotadiaria.setColumns(10);
 		
@@ -49,6 +53,7 @@ public class configurarCuotaDiaria extends JFrame {
 		
 		
 		JButton btnaceptar = new JButton("Aceptar");
+		btnaceptar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnaceptar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -58,10 +63,11 @@ public class configurarCuotaDiaria extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnaceptar.setBounds(358, 31, 117, 29);
+		btnaceptar.setBounds(341, 21, 117, 29);
 		contentPane.add(btnaceptar);
 		
 		JButton btncancelar = new JButton("Cancelar");
+		btncancelar.setFont(new Font("Arial", Font.BOLD, 12));
 		btncancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -69,7 +75,7 @@ public class configurarCuotaDiaria extends JFrame {
 				setVisible(false);
 			}
 		});
-		btncancelar.setBounds(358, 67, 117, 29);
+		btncancelar.setBounds(341, 61, 117, 29);
 		contentPane.add(btncancelar);
 	}
 }

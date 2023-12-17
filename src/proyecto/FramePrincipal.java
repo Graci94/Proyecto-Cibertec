@@ -16,9 +16,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+
 //import java.util.ArrayList;
 //import java.util.List;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+
+
+import javax.swing.JLabel;
+
+import javax.swing.ImageIcon;
+
 
 public class FramePrincipal extends JFrame {
 
@@ -125,16 +133,20 @@ public class FramePrincipal extends JFrame {
 	 */
 	public FramePrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Bienvenido a la Tienda 1.0");
 		setBounds(100, 100, 594, 353);
 
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(new Color(116, 250, 239));
+		menuBar.setBackground(new Color(255, 255, 240));
 		setJMenuBar(menuBar);
 
 		JMenu mnArchivo = new JMenu("Archivo");
+		mnArchivo.setIcon(new ImageIcon(FramePrincipal.class.getResource("/Imagenes/Archivo.png")));
+		mnArchivo.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		menuBar.add(mnArchivo);
 
 		JMenuItem mntmNewMenuItem = new JMenuItem("Salir");
+		mntmNewMenuItem.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -143,9 +155,12 @@ public class FramePrincipal extends JFrame {
 		mnArchivo.add(mntmNewMenuItem);
 
 		JMenu mnMantenimiento = new JMenu("Mantenimiento");
+		mnMantenimiento.setIcon(new ImageIcon(FramePrincipal.class.getResource("/Imagenes/Mantenimiento.png")));
+		mnMantenimiento.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		menuBar.add(mnMantenimiento);
 
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Consultar cerámico");
+		mntmNewMenuItem_1.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 
 			// crear el action con anticlic.
@@ -164,6 +179,7 @@ public class FramePrincipal extends JFrame {
 		mnMantenimiento.add(mntmNewMenuItem_1);
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Modificar cerámicos\n");
+		mntmNewMenuItem_2.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -179,6 +195,7 @@ public class FramePrincipal extends JFrame {
 		mnMantenimiento.add(mntmNewMenuItem_2);
 
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Listar cerámicos");
+		mntmNewMenuItem_3.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -195,9 +212,12 @@ public class FramePrincipal extends JFrame {
 		mnMantenimiento.add(mntmNewMenuItem_3);
 
 		JMenu mnVentas = new JMenu("Ventas");
+		mnVentas.setIcon(new ImageIcon(FramePrincipal.class.getResource("/Imagenes/Ventas.png")));
+		mnVentas.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		menuBar.add(mnVentas);
 
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Vender");
+		mntmNewMenuItem_4.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -214,6 +234,7 @@ public class FramePrincipal extends JFrame {
 		mnVentas.add(mntmNewMenuItem_4);
 
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Generar reportes");
+		mntmNewMenuItem_5.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -230,9 +251,12 @@ public class FramePrincipal extends JFrame {
 		mnVentas.add(mntmNewMenuItem_5);
 
 		JMenu mnConfiguracion = new JMenu("Configuración");
+		mnConfiguracion.setIcon(new ImageIcon(FramePrincipal.class.getResource("/Imagenes/Configuracion.png")));
+		mnConfiguracion.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		menuBar.add(mnConfiguracion);
 
 		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Configurar descuentos");
+		mntmNewMenuItem_7.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -249,6 +273,7 @@ public class FramePrincipal extends JFrame {
 		mnConfiguracion.add(mntmNewMenuItem_7);
 
 		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Configurar obsequios");
+		mntmNewMenuItem_8.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -265,6 +290,7 @@ public class FramePrincipal extends JFrame {
 		mnConfiguracion.add(mntmNewMenuItem_8);
 
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Configurar cantidad óptima");
+		mntmNewMenuItem_6.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -282,6 +308,7 @@ public class FramePrincipal extends JFrame {
 		mnConfiguracion.add(mntmNewMenuItem_6);
 
 		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Configurar cuota diaria\n");
+		mntmNewMenuItem_9.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -298,9 +325,12 @@ public class FramePrincipal extends JFrame {
 		mnConfiguracion.add(mntmNewMenuItem_9);
 
 		JMenu mnAyuda = new JMenu("Ayuda");
+		mnAyuda.setIcon(new ImageIcon(FramePrincipal.class.getResource("/Imagenes/Ayuda.png")));
+		mnAyuda.setFont(new Font("Arial Black", Font.PLAIN, 14));
 		menuBar.add(mnAyuda);
 
 		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Acerca de Tienda");
+		mntmNewMenuItem_10.setFont(new Font("Arial", Font.PLAIN, 12));
 		mntmNewMenuItem_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -322,9 +352,18 @@ public class FramePrincipal extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lbl_imagen = new JLabel("");
+		lbl_imagen.setIcon(new ImageIcon(FramePrincipal.class.getResource("/Imagenes/Tienda.png")));
+		lbl_imagen.setBounds(10, 11, 558, 265);
+		
+		contentPane.add(lbl_imagen);
+		
+		
+		
 	}
 
-	// metodos
+	// METODOS
 
 	static double[] obtenerDescuentos() {
 		double[] descuentos = {
@@ -486,5 +525,4 @@ public class FramePrincipal extends JFrame {
 		
 		return promedio;
 	}
-	
 }

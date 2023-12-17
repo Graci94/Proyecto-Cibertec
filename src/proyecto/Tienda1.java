@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import java.awt.Font;
+import javax.swing.JSeparator;
+
 public class Tienda1 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -21,32 +24,39 @@ public class Tienda1 extends JFrame {
 		
 			
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setTitle("Acerca de Tienda 1.0");
+		setBounds(100, 100, 450, 366);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblautores = new JLabel("Aautores");
-		lblautores.setBounds(180, 23, 61, 16);
+		JLabel lblautores = new JLabel("Autores");
+		lblautores.setBounds(161, 35, 98, 28);
+		lblautores.setFont(new Font("Arial Black", Font.BOLD, 20));
 		contentPane.add(lblautores);
 		
-		JLabel lblanita = new JLabel("Anita Cuzado Gamez   (I202333442)");
-		lblanita.setBounds(103, 82, 277, 16);
+		JLabel lblanita = new JLabel("Anita Cruzado Gomez   (I202333442)");
+		lblanita.setFont(new Font("Arial Black", Font.PLAIN, 12));
+		lblanita.setBounds(91, 111, 286, 14);
 		contentPane.add(lblanita);
 		
 		JLabel lblrosario = new JLabel("Rosario  Salinas Huamán  (I202336059)");
-		lblrosario.setBounds(103, 127, 247, 16);
+		lblrosario.setFont(new Font("Arial Black", Font.PLAIN, 12));
+		lblrosario.setBounds(91, 156, 286, 14);
 		contentPane.add(lblrosario);
 		
-		JLabel lbloscar = new JLabel("José Alonso Gamarra Apaza  (I202335618)");
-		lblrosario.setBounds(103, 127, 247, 16);
-		contentPane.add(lblrosario);
+		JLabel lblalonso = new JLabel("José Alonso Gamarra Apaza  (I202335618)");
+		lblalonso.setFont(new Font("Arial Black", Font.PLAIN, 12));
+		lblalonso.setBounds(91, 206, 286, 14);
+		contentPane.add(lblalonso);
 		
 		
 		
 		JButton brncerrar = new JButton("Cerrar");
+		brncerrar.setFont(new Font("Arial", Font.BOLD, 12));
+		brncerrar.setBounds(178, 254, 81, 23);
 		brncerrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -54,8 +64,10 @@ public class Tienda1 extends JFrame {
 				setVisible(false);
 			}
 		});
-		brncerrar.setBounds(161, 213, 117, 29);
 		contentPane.add(brncerrar);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 84, 404, 2);
+		contentPane.add(separator);
 	}
-
 }

@@ -32,6 +32,7 @@ public class ConsultarCeramico extends JFrame {
 	 */
 	public ConsultarCeramico() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Consultar Cerámico");
 		setBounds(100, 100, 648, 334);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -40,33 +41,33 @@ public class ConsultarCeramico extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Modelo");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(21, 42, 102, 28);
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		lblNewLabel.setBounds(21, 46, 102, 28);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblPrecio = new JLabel("Precio");
-		lblPrecio.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPrecio.setFont(new Font("Arial", Font.BOLD, 14));
 		lblPrecio.setBounds(21, 86, 102, 28);
 		contentPane.add(lblPrecio);
 		
 		JLabel lblAncho = new JLabel("Largo");
-		lblAncho.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblAncho.setFont(new Font("Arial", Font.BOLD, 14));
 		lblAncho.setBounds(21, 125, 102, 28);
 		contentPane.add(lblAncho);
 		
 		JLabel lblAncho_1 = new JLabel("Ancho");
-		lblAncho_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblAncho_1.setBounds(21, 169, 102, 28);
+		lblAncho_1.setFont(new Font("Arial", Font.BOLD, 14));
+		lblAncho_1.setBounds(21, 164, 102, 28);
 		contentPane.add(lblAncho_1);
 		
 		JLabel lblEspesor = new JLabel("Espesor");
-		lblEspesor.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblEspesor.setBounds(21, 208, 102, 28);
+		lblEspesor.setFont(new Font("Arial", Font.BOLD, 14));
+		lblEspesor.setBounds(21, 203, 102, 28);
 		contentPane.add(lblEspesor);
 		
 		JLabel lblCantidad = new JLabel("Contenido");
-		lblCantidad.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCantidad.setBounds(21, 247, 102, 28);
+		lblCantidad.setFont(new Font("Arial", Font.BOLD, 14));
+		lblCantidad.setBounds(21, 242, 102, 28);
 		contentPane.add(lblCantidad);
 		
 		String[] listaCeramicos= {"Cinza Plus", "Luxury", "Austria", "Yungay Mix", "Thalía"};
@@ -96,43 +97,43 @@ public class ConsultarCeramico extends JFrame {
 			}	
 				
 		});
-		cbModelo.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		cbModelo.setFont(new Font("Arial", Font.PLAIN, 13));
 		cbModelo.setBounds(109, 47, 217, 28);
 		contentPane.add(cbModelo);
 		
 		tfPrecio = new JTextField();
 		tfPrecio.setEditable(false);
-		tfPrecio.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		tfPrecio.setFont(new Font("Arial", Font.PLAIN, 13));
 		tfPrecio.setBounds(109, 87, 217, 28);
 		contentPane.add(tfPrecio);
 		tfPrecio.setColumns(10);
 		
 		tfLargo = new JTextField();
 		tfLargo.setEditable(false);
-		tfLargo.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		tfLargo.setFont(new Font("Arial", Font.PLAIN, 13));
 		tfLargo.setColumns(10);
 		tfLargo.setBounds(109, 126, 217, 28);
 		contentPane.add(tfLargo);
 		
 		tfAncho = new JTextField();
 		tfAncho.setEditable(false);
-		tfAncho.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		tfAncho.setFont(new Font("Arial", Font.PLAIN, 13));
 		tfAncho.setColumns(10);
 		tfAncho.setBounds(109, 165, 217, 28);
 		contentPane.add(tfAncho);
 		
 		tfEspesor = new JTextField();
 		tfEspesor.setEditable(false);
-		tfEspesor.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		tfEspesor.setFont(new Font("Arial", Font.PLAIN, 13));
 		tfEspesor.setColumns(10);
-		tfEspesor.setBounds(109, 208, 217, 28);
+		tfEspesor.setBounds(109, 203, 217, 28);
 		contentPane.add(tfEspesor);
 		
 		tfContenido = new JTextField();
 		tfContenido.setEditable(false);
-		tfContenido.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		tfContenido.setFont(new Font("Arial", Font.PLAIN, 13));
 		tfContenido.setColumns(10);
-		tfContenido.setBounds(109, 247, 217, 28);
+		tfContenido.setBounds(109, 242, 217, 28);
 		contentPane.add(tfContenido);
 		
 		JButton btnCerrar = new JButton("Cerrar");
@@ -144,7 +145,7 @@ public class ConsultarCeramico extends JFrame {
 				    }
 			
 		});
-		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCerrar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnCerrar.setBounds(376, 51, 118, 38);
 		contentPane.add(btnCerrar);
 		

@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class ConfigurarDescuento extends JFrame {
 
@@ -30,6 +31,7 @@ public class ConfigurarDescuento extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Configurar porcentajes de descuento");
 		setBounds(100, 100, 486, 187);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -38,42 +40,51 @@ public class ConfigurarDescuento extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lbl1unidades = new JLabel("1 a 5 unidades");
+		lbl1unidades.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbl1unidades.setBounds(21, 18, 105, 16);
 		contentPane.add(lbl1unidades);
 		
 		JLabel lbl6unidades = new JLabel("6 a 10 unidades");
+		lbl6unidades.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbl6unidades.setBounds(21, 46, 105, 16);
 		contentPane.add(lbl6unidades);
 		
 		JLabel lbl11unidades = new JLabel("11 a 15 unidades");
+		lbl11unidades.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbl11unidades.setBounds(21, 74, 114, 16);
 		contentPane.add(lbl11unidades);
 		
 		JLabel lblmas15 = new JLabel("Más de 15 unidades");
+		lblmas15.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblmas15.setBounds(21, 102, 125, 16);
 		contentPane.add(lblmas15);
 		
 		tf_descuento1 = new JTextField();
-		tf_descuento1.setBounds(178, 13, 98, 26);
+		tf_descuento1.setFont(new Font("Arial", Font.PLAIN, 12));
+		tf_descuento1.setBounds(171, 13, 105, 26);
 		contentPane.add(tf_descuento1);
 		tf_descuento1.setColumns(10);
 		
 		tf_descuento2 = new JTextField();
+		tf_descuento2.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_descuento2.setBounds(171, 41, 105, 26);
 		contentPane.add(tf_descuento2);
 		tf_descuento2.setColumns(10);
 		
 		tf_descuento3 = new JTextField();
+		tf_descuento3.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_descuento3.setBounds(171, 69, 105, 26);
 		contentPane.add(tf_descuento3);
 		tf_descuento3.setColumns(10);
 		
 		tf_descuento4 = new JTextField();
+		tf_descuento4.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_descuento4.setBounds(171, 97, 105, 26);
 		contentPane.add(tf_descuento4);
 		tf_descuento4.setColumns(10);
 		
 		JButton btnaceptar = new JButton("Aceptar");
+		btnaceptar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnaceptar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -100,17 +111,18 @@ public class ConfigurarDescuento extends JFrame {
 				
 			}
 		});
-		btnaceptar.setBounds(363, 33, 117, 29);
+		btnaceptar.setBounds(325, 40, 117, 29);
 		contentPane.add(btnaceptar);
 		
 		JButton btncancelar = new JButton("Cancelar");
+		btncancelar.setFont(new Font("Arial", Font.BOLD, 12));
 		btncancelar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 			}
 		});
-		btncancelar.setBounds(363, 69, 117, 29);
+		btncancelar.setBounds(325, 68, 117, 29);
 		contentPane.add(btncancelar);
 		
 		JLabel lblNewLabel_4 = new JLabel("%");

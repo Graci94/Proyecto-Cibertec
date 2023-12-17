@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class ModificarCeramico extends JFrame {
 
@@ -43,6 +44,7 @@ public class ModificarCeramico extends JFrame {
 	
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Modificar Cerámico");
 		setBounds(100, 100, 497, 321);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -51,55 +53,67 @@ public class ModificarCeramico extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblmodelo = new JLabel("Modelo");
+		lblmodelo.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblmodelo.setBounds(24, 37, 61, 16);
 		contentPane.add(lblmodelo);
 		
 		JLabel lblprecio = new JLabel("Precio (S/)");
+		lblprecio.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblprecio.setBounds(24, 83, 73, 16);
 		contentPane.add(lblprecio);
 		
 		JLabel lblancho = new JLabel("Ancho (cm)");
+		lblancho.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblancho.setBounds(24, 126, 73, 16);
 		contentPane.add(lblancho);
 		
 		JLabel lbllargo = new JLabel("Largo (cm)");
+		lbllargo.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbllargo.setBounds(24, 170, 73, 16);
 		contentPane.add(lbllargo);
 		
 		JLabel lblespesor = new JLabel("Espesor (mm)");
+		lblespesor.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblespesor.setBounds(24, 209, 96, 16);
 		contentPane.add(lblespesor);
 		
 		JLabel lblcontenido = new JLabel("Contenido");
+		lblcontenido.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblcontenido.setBounds(24, 246, 81, 16);
 		contentPane.add(lblcontenido);
 		
 		tf_precio = new JTextField();
+		tf_precio.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_precio.setBounds(144, 78, 130, 26);
 		contentPane.add(tf_precio);
 		tf_precio.setColumns(10);
 		
 		tf_ancho = new JTextField();
+		tf_ancho.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_ancho.setBounds(144, 121, 127, 26);
 		contentPane.add(tf_ancho);
 		tf_ancho.setColumns(10);
 		
 		tf_largo = new JTextField();
+		tf_largo.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_largo.setBounds(144, 165, 130, 26);
 		contentPane.add(tf_largo);
 		tf_largo.setColumns(10);
 		
 		tf_espesor = new JTextField();
+		tf_espesor.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_espesor.setBounds(144, 204, 130, 26);
 		contentPane.add(tf_espesor);
 		tf_espesor.setColumns(10);
 		
 		tf_contenido = new JTextField();
+		tf_contenido.setFont(new Font("Arial", Font.PLAIN, 12));
 		tf_contenido.setColumns(10);
 		tf_contenido.setBounds(144, 241, 130, 26);
 		contentPane.add(tf_contenido);
 		
-		JButton btngrabar = new JButton("Grabar");
+		JButton btngrabar = new JButton("Guardar");
+		btngrabar.setFont(new Font("Arial", Font.BOLD, 12));
 		btngrabar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -121,6 +135,7 @@ public class ModificarCeramico extends JFrame {
 		contentPane.add(btngrabar);
 		
 		JButton btncerrar = new JButton("Cerrar");
+		btncerrar.setFont(new Font("Arial", Font.BOLD, 12));
 		btncerrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -132,6 +147,7 @@ public class ModificarCeramico extends JFrame {
 		String []modelo={"Cinza Plus", "Luxury", "Austria","Yungay Mix", "Thalía"};
 		
 		JComboBox<String>cbmodelo = new JComboBox<>(modelo);
+		cbmodelo.setFont(new Font("Arial", Font.PLAIN, 12));
 		cbmodelo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//leer valores

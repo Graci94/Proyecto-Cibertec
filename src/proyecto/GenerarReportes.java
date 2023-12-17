@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Font;
 
 public class GenerarReportes extends JFrame {
 
@@ -36,6 +37,7 @@ public class GenerarReportes extends JFrame {
 	 */
 	public GenerarReportes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Generar Reportes");
 		setBounds(100, 100, 579, 457);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -44,11 +46,13 @@ public class GenerarReportes extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lbltipodereporte = new JLabel("Tipo de reporte");
+		lbltipodereporte.setFont(new Font("Arial", Font.PLAIN, 12));
 		lbltipodereporte.setBounds(6, 27, 135, 16);
 		contentPane.add(lbltipodereporte);
 		
 		
 		JComboBox<String> cbtiporeporte = new JComboBox<>();
+		cbtiporeporte.setFont(new Font("Arial", Font.PLAIN, 12));
 		cbtiporeporte.setModel(new DefaultComboBoxModel<String>(new String[] {"Ventas por modelo", "Comparación de precios con el precio promedio", "Comparación de cajas vendidas con la cantidad óptima", "Estadística sobre el precio"}));
 		cbtiporeporte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -62,6 +66,7 @@ public class GenerarReportes extends JFrame {
 		contentPane.add(cbtiporeporte);
 		
 		JButton btncerrar = new JButton("Cerrar");
+		btncerrar.setFont(new Font("Arial", Font.BOLD, 12));
 		btncerrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -69,7 +74,7 @@ public class GenerarReportes extends JFrame {
 				
 			}
 		});
-		btncerrar.setBounds(456, 22, 117, 29);
+		btncerrar.setBounds(436, 21, 117, 29);
 		contentPane.add(btncerrar);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -77,6 +82,7 @@ public class GenerarReportes extends JFrame {
 		contentPane.add(scrollPane);
 		
 		ta_salida = new JTextArea();
+		ta_salida.setFont(new Font("Arial", Font.PLAIN, 13));
 		scrollPane.setViewportView(ta_salida);
 		
 		
@@ -153,29 +159,29 @@ public class GenerarReportes extends JFrame {
 		mensaje+= "Modelo : \t\t"+ FramePrincipal.modelo0+ "\n";
 		mensaje+= "Precio  : \t\tS/." + FramePrincipal.precio0+ "\n";
 		mensaje+= "Precio promedio  : \tS/. "+ promedio+ "\n";
-		mensaje+= "Comparación :\tS/." +compararCantidadesDouble(FramePrincipal.precio0,promedio)+" que el promedio \n\n";
+		mensaje+= "Comparación :\t\tS/." +compararCantidadesDouble(FramePrincipal.precio0,promedio)+" que el promedio \n\n";
 		
 		
 		mensaje+= "Modelo : \t\t"+ FramePrincipal.modelo1+ "\n";
 		mensaje+= "Precio  : \t\tS/." + FramePrincipal.precio1+ "\n";
 		mensaje+= "Precio promedio  : \tS/. "+ promedio+"\n";
-		mensaje+= "Comparación :\tS/." +compararCantidadesDouble(FramePrincipal.precio1,promedio)+" que el promedio \n\n";
+		mensaje+= "Comparación :\t\tS/." +compararCantidadesDouble(FramePrincipal.precio1,promedio)+" que el promedio \n\n";
 		
 		
 		mensaje+= "Modelo : \t\t"+ FramePrincipal.modelo2+ "\n";
 		mensaje+= "Precio  : \t\tS/." + FramePrincipal.precio2+ "\n";
 		mensaje+= "Precio promedio  : \tS/. "+ promedio+"\n";
-		mensaje+= "Comparación :\tS/." +compararCantidadesDouble(FramePrincipal.precio2,promedio)+" que el promedio \n\n";
+		mensaje+= "Comparación :\t\tS/." +compararCantidadesDouble(FramePrincipal.precio2,promedio)+" que el promedio \n\n";
 		
 		mensaje+= "Modelo : \t\t"+ FramePrincipal.modelo3+ "\n";
 		mensaje+= "Precio  : \t\tS/." + FramePrincipal.precio3+ "\n";
 		mensaje+= "Precio promedio  : \tS/. "+ promedio+"\n";
-		mensaje+= "Comparación :\tS/." +compararCantidadesDouble(FramePrincipal.precio3,promedio)+" que el promedio \n\n";
+		mensaje+= "Comparación :\t\tS/." +compararCantidadesDouble(FramePrincipal.precio3,promedio)+" que el promedio \n\n";
 		
 		mensaje+= "Modelo : \t\t"+ FramePrincipal.modelo4+ "\n";
 		mensaje+= "Precio  : \t\tS/." + FramePrincipal.precio4+ "\n";
 		mensaje+= "Precio promedio  : \tS/. "+ promedio+"\n";
-		mensaje+= "Comparación :\tS/." +compararCantidadesDouble(FramePrincipal.precio4,promedio)+"que el promedio \n\n";
+		mensaje+= "Comparación :\t\tS/." +compararCantidadesDouble(FramePrincipal.precio4,promedio)+"que el promedio \n\n";
 		
 		
 		return mensaje;	
@@ -217,8 +223,8 @@ public class GenerarReportes extends JFrame {
 		
 		String mensaje = "ESTADÍSTICA SOBRE EL PRECIO\n\n";
 		mensaje+= "Precio promedio :\tS/." + FramePrincipal.calcularPrecioPromedio()+ "\n";
-		mensaje+= "Precio mayor   :\tS/." + precioMayor()+ "\n";
-		mensaje+= "Precio menor  :\tS/."+ precioMenor() + "\n\n";
+		mensaje+= "Precio mayor   :   \tS/." + precioMayor()+ "\n";
+		mensaje+= "Precio menor  :    \tS/."+ precioMenor() + "\n\n";
 				
 		return mensaje;		
 	}
@@ -237,7 +243,7 @@ String compararCantidadesDouble(double cant1, double cant2) {
 	
 	}
 	else {
-		return "igual";
+		return " igual";
 	}
 }
 
