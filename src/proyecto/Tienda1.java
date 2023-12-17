@@ -37,7 +37,7 @@ public class Tienda1 extends JFrame {
 		lblautores.setFont(new Font("Arial Black", Font.BOLD, 20));
 		contentPane.add(lblautores);
 		
-		JLabel lblanita = new JLabel("Anita Cruzado Gomez   (I202333442)");
+		JLabel lblanita = new JLabel("Anita Cruzado Gamez   (I202333442)");
 		lblanita.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		lblanita.setBounds(91, 111, 286, 14);
 		contentPane.add(lblanita);
